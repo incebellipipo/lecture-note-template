@@ -1,0 +1,20 @@
+# Documentation Template
+
+> A Jekyll template for project documentation. Pages are plain markdown files in `docs/` with no front matter, so they read well both in a repository browser and as a built website. The site has a LaTeX-article look with light and dark themes, MathJax maths, Mermaid diagrams, and a GitHub Pages workflow that deploys on every push to `main`.
+
+Key points:
+
+- One markdown file in `docs/` is one page. `docs/index.md` is the front page; the rest are served at `/<basename>/`.
+- Front matter is optional: Jekyll plugins supply the layout, the permalink and the title (taken from the first `#` heading).
+- The contents list in `docs/index.md` is the table of contents; there is no generated sidebar.
+- Styling is a handful of Sass partials in `assets/css/_sass`; colours come from CSS variables shared by the stylesheet, the code highlighting and the diagrams.
+- Placeholders to replace before publishing: `title`, `description`, `author` and `baseurl` in `_config.yml`, the copyright line in `LICENSE.md`, this file, and the pages in `docs/`.
+
+## Docs
+
+- [Index](./): what the template is, how a page becomes a site, contents
+- [0. Getting started](00-getting-started/): copy the template, replace the placeholders, preview locally, publish
+- [1. Writing pages](01-writing-pages/): file-to-URL mapping, optional front matter, numbering and order, links between pages, headings
+- [2. Formatting reference](02-formatting/): text, tables, code blocks, `<details>` dropdowns, maths, Mermaid diagrams, images
+- [3. Customising](03-customising/): configuration keys, the Sass partials and theme variables, fonts, layout and includes, extra directories
+- [4. Publishing](04-publishing/): the GitHub Pages workflow, base paths and custom domains, `llms.txt`, a publishing checklist
