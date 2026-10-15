@@ -61,6 +61,33 @@ article pre {
   line-height: 1.5;
   text-align: left;
 }
+.code-wrap {
+  position: relative;
+  .code-copy {
+    position: absolute;
+    top: 0.35em;
+    right: 0.35em;
+    padding: 0.1em 0.5em;
+    border: 1px solid var(--code-rule);
+    border-radius: 3px;
+    background: var(--code-bg);
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.7em;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s;
+    &:hover { color: var(--link); }
+  }
+  &:hover .code-copy,
+  .code-copy:focus-visible,
+  .code-copy.copied { opacity: 1; }
+}
+@media (hover: none) {
+  .code-wrap .code-copy { opacity: 1; }
+}
 article pre code {
   font-size: 1em; // the size is set on <pre>
 }
