@@ -12,7 +12,7 @@
 | `baseurl` | path prefix for local previews; the workflow overrides it on deploy |
 | `home_url` | optional; when set, adds a *Home* link to the menu |
 | `defaults` | applies the `doc` layout and the `/:basename/` permalinks to `docs` |
-| `exclude` | files kept out of the build (`README.md`, `src/`, `notebooks/`, …) |
+| `exclude` | files kept out of the build (`README.md`, `src/`, `tools/`, …) |
 
 Leave `plugins`, `optional_front_matter`, `relative_links` and `titles_from_headings` as they are unless you want front matter back in your pages — they are what makes [front-matter-free pages](01-writing-pages.md#no-front-matter-needed) work.
 
@@ -27,7 +27,10 @@ style.scss         page frame, title block, navigation, headings
 latex-fonts.scss   the Computer Modern @font-face rules
 footer.scss        the footer
 docs.scss          tables, code, dropdowns, diagrams
+copy.scss          the copy button on code blocks
 ```
+
+`assets/css/notebook.scss` is a second, small stylesheet: it holds only the copy button, for the [rendered notebooks](05-notebooks.md), which keep JupyterLab's look.
 
 Change colours in `themes.scss`. Each theme defines the same CSS variables — `--bg`, `--ink`, `--muted`, `--link`, `--link-hover` — and the rest of the stylesheet, the Mermaid include and the code colours all read them, so editing those values restyles everything at once.
 
@@ -39,7 +42,7 @@ The theme switch in the corner writes the choice to `localStorage`; with nothing
 
 ## Layout and includes
 
-`_layouts/doc.html` is the single layout: the theme switch, the title block, the navigation, {% raw %}`{{ content }}`{% endraw %}, the footer, and the two includes. Edit it to add a sidebar, a search box or your own footer text.
+`_layouts/doc.html` is the single layout: the theme switch, the title block, the navigation, {% raw %}`{{ content }}`{% endraw %}, the footer, the two includes, and `assets/js/copy-code.js`, which adds a *copy* button to every code block. Edit it to add a sidebar, a search box or your own footer text.
 
 - `_includes/mathjax.html` — the MathJax configuration and script tag
 - `_includes/mermaid.html` — finds `mermaid` code blocks, renders them in the theme colours, redraws on a theme change
@@ -48,6 +51,8 @@ Both are loaded from a CDN. If you need the site to work offline, vendor those t
 
 ## Extra directories
 
-`src/` and `notebooks/` are empty placeholders for code or notebooks that accompany the documentation. They are listed in `exclude`, so nothing in them is published. Delete them if your project is documentation only.
+`src/` is an empty placeholder for code that accompanies the documentation. It is listed in `exclude`, so nothing in it is published. Delete it if your project is documentation only.
+
+`notebooks/` is different: every notebook in it is published as a page. [Notebooks](05-notebooks.md) has the details.
 
 Next: [Publishing](04-publishing.md)

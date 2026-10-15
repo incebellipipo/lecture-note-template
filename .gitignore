@@ -5,3 +5,7 @@ _site
 .bundle
 vendor
 .vscode/**/*
+
+.ipynb_checkpoints
+__pycache__
+_preview

@@ -7,7 +7,8 @@
 ```mermaid
 flowchart LR
     push["push to main"] --> build["jekyll build<br/>--baseurl (repository path)"]
-    build --> artifact["upload-pages-artifact"]
+    build --> render["render_notebooks.sh<br/>(nbconvert)"]
+    render --> artifact["upload-pages-artifact"]
     artifact --> deploy["deploy-pages"]
     deploy --> url["https://user.github.io/repository/"]
 ```
@@ -32,9 +33,10 @@ For a custom domain, add a `CNAME` file at the repository root containing the do
 - `baseurl` matches the repository name, or is empty for a custom domain
 - the contents list in `docs/index.md` links every page, in order
 - each page ends with a link to the next one
+- every notebook in `notebooks/` is linked from the contents, and `make test` runs them clean
 - `llms.txt` matches the pages that exist
 - `README.md` describes your project
 - `LICENSE.md` names the right copyright holder
 - the local preview builds without warnings
 
-Back to the [contents](index.md).
+Next: [Notebooks](05-notebooks.md)

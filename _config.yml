@@ -53,7 +53,9 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - docker-compose.yml
+  - Makefile
   - vendor/
   - src/
-  - notebooks/
+  - _preview/
+  - tools/
   - .github/

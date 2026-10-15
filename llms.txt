@@ -5,6 +5,8 @@
 Key points:
 
 - One markdown file in `docs/` is one page. `docs/index.md` is the front page; the rest are served at `/<basename>/`.
+- One Jupyter notebook in `notebooks/` is one more page, at `/notebooks/<basename>.html`, rendered by `tools/render_notebooks.sh` after the Jekyll build. Links say `.ipynb` and `../docs/<page>.md` in the source; the script rewrites them on the built site only.
+- Every code block, on the pages and in the notebooks, gets a copy button from `assets/js/copy-code.js`.
 - Front matter is optional: Jekyll plugins supply the layout, the permalink and the title (taken from the first `#` heading).
 - The contents list in `docs/index.md` is the table of contents; there is no generated sidebar.
 - Styling is a handful of Sass partials in `assets/css/_sass`; colours come from CSS variables shared by the stylesheet, the code highlighting and the diagrams.
@@ -18,3 +20,5 @@ Key points:
 - [2. Formatting reference](02-formatting/): text, tables, code blocks, `<details>` dropdowns, maths, Mermaid diagrams, images
 - [3. Customising](03-customising/): configuration keys, the Sass partials and theme variables, fonts, layout and includes, extra directories
 - [4. Publishing](04-publishing/): the GitHub Pages workflow, base paths and custom domains, `llms.txt`, a publishing checklist
+- [5. Notebooks](05-notebooks/): notebooks as pages, link rewriting, maths and diagrams, `make test`
+- [Example notebook](notebooks/00-example.html): what a rendered notebook looks like

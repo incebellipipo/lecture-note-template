@@ -27,14 +27,16 @@ docker compose up
 # open http://localhost:4000/documentation-template/
 ```
 
-Edits to `docs/` reload in the browser. Without Docker, you need Ruby (see `.ruby-version`):
+This builds the site once, exactly as GitHub Pages does — Jekyll makes the pages, nbconvert renders the notebooks — and serves the result. After editing, stop it and run it again. `make serve` does the same.
+
+Without Docker, you need Ruby (see `.ruby-version`). For the pages alone, with reload on every edit:
 
 ```bash
 bundle install
 bundle exec jekyll serve --livereload
 ```
 
-A change to `_config.yml` is the one edit the server does not pick up; restart it.
+`jekyll serve` does not render the notebooks: their links go to the raw `.ipynb` files. A change to `_config.yml` is the one edit the server does not pick up; restart it.
 
 ## Publish
 
